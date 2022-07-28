@@ -1,11 +1,16 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: %i[ show update destroy ]
 
+  has_scope :by_name, only: :index
+
   # GET /products
   def index
     @products = Product.all
-
-    render json: @products, include: [:categories]
+    if(params[:order]=="asc")
+      render json: apply_scopes(@products.order(value: :asc))
+    else
+      render json: apply_scopes(@products.order(value: :desc))
+    end
   end
 
   # GET /products/1
