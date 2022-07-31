@@ -1,7 +1,6 @@
 namespace :dev do
   desc "populating database"
   task setup: :environment do
-    %x(rails db:drop db:create db:migrate)
     puts "creating categories..."
     Category.create!(
       name:"Desktop"

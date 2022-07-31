@@ -7,6 +7,7 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.integer :stock
       t.float :value
       t.boolean :highlight
+      t.string :details
 
       t.timestamps
     end

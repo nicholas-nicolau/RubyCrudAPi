@@ -12,6 +12,5 @@ class Product < ApplicationRecord
   validates :stock, presence: true
   validates :value, presence: true
   validates :highlight, presence: true
-  validates :image, presence: true
   validates :details, presence: true
 end
